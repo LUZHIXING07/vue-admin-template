@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- 引入echarts依赖包 -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.common.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.box {
+				width: 600px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 准备容器 -->
+		<div class="box"></div>
+	</body>
+</html>
+<script>
+	// 获取容器
+	let dom = document.querySelector(".box");
+	// 初始化echarts实例
+	let mycharts = echarts.init(dom);
+	// 配置数据
+	/** @type EChartsOption */
+	mycharts.setOption({
+		// 标题
+		title: {
+			text: "echarts组件",
+		},
+		xAxis: {
+			data: ["游戏", "电影", "直播", "娱乐"],
+		},
+		yAxis: {},
+		series: [
+			// 柱状图
+			{
+				name: "柱状图",
+				type: "bar",
+				data: [10, 20, 30, 40],
+			},
+			// 折线图
+			{
+				name: "折线图",
+				type: "line",
+				data: [20, 45, 60, 50],
+			},
+		],
+		// 提示组件
+		tooltip: {},
+        // 系统切换组件
+		legend: {
+			data: ["柱状图", "折线图"],
+		},
+        // 调整图标布局
+        grid: {
+            left: '10%',
+            right: '10%',
+        },
+	});
+</script>

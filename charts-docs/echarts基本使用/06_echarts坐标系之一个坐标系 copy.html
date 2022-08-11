@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- 引入echarts依赖包 -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.common.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器: 容器就是显示图标区域 -->
+		<div style="width: 800px; height: 400px"></div>
+	</body>
+</html>
+<script>
+	// 基于准备好的dom,初始化echarts实例
+	let dom = document.querySelector("div");
+	// 创建echarts实例
+	let mycharts = echarts.init(dom);
+	// 一个坐标系: 散点图
+	/** @type EChartsOption */
+	mycharts.setOption({
+		title: {
+			text: "一个坐标系",
+		},
+		// x轴
+		xAxis: {},
+		// y轴
+		yAxis: {},
+		// 散点图
+		series: [
+			{
+				type: "scatter",
+				data: [
+					[10, 20],
+					[25, 32],
+					[45, 67],
+					[50, 76],
+					[12, 85],
+				],
+			},
+		],
+	});
+</script>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+</style>

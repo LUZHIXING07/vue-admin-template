@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- 引入echarts依赖包 -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.common.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器: 容器就是显示图标区域 -->
+		<div style="width: 800px; height: 400px"></div>
+	</body>
+</html>
+<script>
+	// 基于准备好的dom,初始化echarts实例
+	let dom = document.querySelector("div");
+	// 创建echarts实例
+	let mycharts = echarts.init(dom);
+	// 双坐标系:
+	/** @type EChartsOption */
+	mycharts.setOption({
+		title: {
+			text: "双坐标系",
+		},
+		// x轴
+		xAxis: {
+			data: ["游戏", "直播", "经济", "娱乐"],
+		},
+		// y轴
+		yAxis: [
+			{
+				// 显示y轴的线
+				axisLine: {
+					show: true,
+				},
+				// 显示y轴刻度
+				axisTick: {
+					show: true,
+				},
+			},
+			{
+				// 显示y轴的线
+				axisLine: {
+					show: true,
+				},
+				// 显示y轴刻度
+				axisTick: {
+					show: true,
+				},
+			},
+		],
+		series: [
+			{
+				// 折线图
+				type: "line",
+				data: [10, 55, 20, 35],
+				yAxisIndex:0
+			},
+			{
+				// 柱状图
+				type: "bar",
+				data: [20, 15, 50, 30],
+				yAxisIndex:1
+
+			},
+		],
+	});
+</script>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+</style>

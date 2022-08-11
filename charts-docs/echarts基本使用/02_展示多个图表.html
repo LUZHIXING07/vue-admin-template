@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- 引入echarts依赖包 -->
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.common.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器: 容器就是显示图标区域 -->
+		<div class="box" style="width: 600px;height: 400px;"></div>
+		<div class="box1" style="width: 600px;height: 400px;"></div>	
+	</body>
+</html>
+<script>
+	// 基于准备好的dom,初始化echarts实例
+	let dom = document.querySelector(".box");
+	let dom1 = document.querySelector(".box1");
+	// 创建echarts实例
+	let mycharts = echarts.init(dom);
+	let mycharts1 = echarts.init(dom1);
+	// 指定图表的配置项与数据
+	mycharts.setOption({
+		// 图表的标题
+		title: {
+			// 主标题的设置
+			text: "数据可视化",
+			// 子标题
+			subtext: "echarts基本使用",
+			// 设置标题位置
+			left:"center"
+		},
+		// x轴的配置项
+		xAxis: {
+			// 数据
+			data:["娱乐","运动","餐厅","书店"]
+		},
+		// y轴的配置项
+		yAxis: {
+			// 显示y轴的线
+			axisLine:{
+				show:true
+			},
+			// 显示y轴刻度
+			axisTick:{
+				show:true
+			}
+		},
+		// 系列的设置: 绘制什么样类型的图表, 数据的展示在这里设置
+		series:[
+			{
+				// 图表类型的设置
+				type:"bar",
+				// 图表的数据
+				data:[10,20,30,40]
+			}
+		]
+	});
+	// 第二个图表的配置项
+	mycharts1.setOption({
+		title:{
+			// 主标题
+			text:"折线图",
+			// 子标题
+			subtext: "echarts基本使用",
+			// 设置标题位置
+			left:"center"
+		},
+		// x轴
+		xAxis:{
+			data:['星期一','星期er','星期三','星期四','星期五','星期六','星期日']
+		},
+		// y轴
+		yAxis:{},
+		// 图表类型与数据
+		series:[
+			{
+				type:'line',
+				data:[10,20,25,45,32,72,100]
+			}
+		]
+	})
+</script>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+</style>
